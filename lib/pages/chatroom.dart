@@ -145,9 +145,27 @@ class _chatroomState extends State<chatroom> {
                               margin: const EdgeInsets.symmetric(vertical: 4),
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: isSentByMe
-                                    ? Colors.teal.shade600
-                                    : Colors.teal.shade100,
+                                gradient: isSentByMe
+                                    ? const RadialGradient(
+                                        radius: 5.0,
+                                        center: Alignment.bottomLeft,
+                                        colors: [
+                                          Colors.blue,
+                                          Color.fromARGB(255, 183, 124, 250)
+                                        ],
+                                        //begin: Alignment.topLeft,
+                                        //end: Alignment.bottomRight,
+                                      )
+                                    : const RadialGradient(
+                                        radius: 5.0,
+                                        center: Alignment.bottomRight,
+                                        colors: [
+                                          Color.fromARGB(255, 255, 49, 169),
+                                          Color.fromARGB(255, 243, 58, 33),
+                                        ],
+                                        //begin: Alignment.topLeft,
+                                        //end: Alignment.bottomRight,
+                                      ),
                                 borderRadius: BorderRadius.only(
                                   topLeft: const Radius.circular(12),
                                   topRight: const Radius.circular(12),
@@ -161,10 +179,10 @@ class _chatroomState extends State<chatroom> {
                               ),
                               child: Text(
                                 msg['message'],
-                                style: TextStyle(
-                                  color:
-                                      isSentByMe ? Colors.white : Colors.black,
+                                style: const TextStyle(
+                                  color: Colors.white,
                                   fontSize: 16,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
